@@ -12,31 +12,80 @@ namespace Ch7_P3_ProcessMultipleExceptions
         {
             Console.WriteLine(" Processing Multiple Exceptions... ");
 
-            Console.WriteLine("***** Handling Multiple Exceptions *****\n");
-            Car myCar = new Car("New Cultus AGS", 90);
+            //Console.WriteLine("***** Handling Multiple Exceptions *****\n");
+            //Car myCar = new Car("New Cultus AGS", 90);
+            //try
+            //{
+            //    // Trip Arg out of range exception.
+            //    myCar.Accelerate(-10);
+            //}
+            ////catch (Exception e)
+            ////{
+            ////    // Process all other exceptions?
+            ////    Console.WriteLine(e.Message);
+            ////}
+            //catch (CarIsDeadException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+            //catch (ArgumentOutOfRangeException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+            //catch (Exception e)
+            //{
+            //    // Process all other exceptions?
+            //    Console.WriteLine(e.Message);
+            //}
+
+
+            #region General catch Statements
+
+            //Car myCar = new Car("Rusty", 90);
+            //try
+            //{
+            //    myCar.Accelerate(90);
+            //}
+            //catch
+            //{
+            //    Console.WriteLine("Something bad happened...");
+            //}
+
+            #endregion
+
+            #region Rethrowing Exceptions
+
+            //Car myCar = new Car("Rusty", 90);
+
+            //try
+            //{
+            //    // Speed up car logic...
+            //    myCar.Accelerate(90);
+            //}
+            //catch (CarIsDeadException e)
+            //{
+            //    // Do any partial processing of this error and pass the buck.
+            //    throw;
+            //}
+
+            #endregion
+
+            #region Inner Exception
+
+            Car myCar = new Car("Rusty", 90);
+
             try
             {
-                // Trip Arg out of range exception.
-                myCar.Accelerate(-10);
+                // Speed up car logic...
+                myCar.Accelerate(90);
             }
-            //catch (Exception e)
-            //{
-            //    // Process all other exceptions?
-            //    Console.WriteLine(e.Message);
-            //}
             catch (CarIsDeadException e)
             {
-                Console.WriteLine(e.Message);
+                // Do any partial processing of this error and pass the buck.
+                throw;
             }
-            catch (ArgumentOutOfRangeException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            //catch (Exception e)
-            //{
-            //    // Process all other exceptions?
-            //    Console.WriteLine(e.Message);
-            //}
+
+            #endregion
 
             Console.ReadLine();
         }
