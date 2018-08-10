@@ -56,9 +56,13 @@ namespace Ch7_P3_ProcessMultipleExceptions
 
                         #region Throwing excpetion by custom exception class
 
-                    CarIsDeadException ex = new CarIsDeadException($"{CarName} is over heated");
-                    ex.HelpLink = "www.apni-auqat-main-raho.com";
-                    throw ex;
+                        //CarIsDeadException ex = new CarIsDeadException($"{CarName} has overheated!", "You have a lead foot", DateTime.Now);
+                        //throw ex;
+
+
+                        CarIsDeadException ex = new CarIsDeadException($"{CarName} is over heated");
+                        ex.HelpLink = "www.apni-auqat-main-raho.com";
+                        throw ex;
 
                         #endregion
 

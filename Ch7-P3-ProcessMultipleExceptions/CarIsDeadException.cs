@@ -72,6 +72,12 @@ namespace Ch7_P3_ProcessMultipleExceptions
         public CarIsDeadException(string message , System.Exception inner) : base(message,inner)
         { }
 
+        public CarIsDeadException(string message, string cause, DateTime time) : base(message)
+        {
+            CauseOfError = cause;
+            ErrorTimeStamp = time;
+        }
+
         protected CarIsDeadException(System.Runtime.Serialization.SerializationInfo info, 
                                      System.Runtime.Serialization.StreamingContext context) : base(info, context)
         { }
