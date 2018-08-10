@@ -35,40 +35,49 @@ namespace Ch7_P2_CustomException
         public void Accelerate(int delta)
         {
             if (carIsDead)
+            {
                 Console.WriteLine("{0} is out of order...", CarName);
+            }
             else
             {
-                CurrentSpeed += delta;
-                if (CurrentSpeed > MaxSpeed)
+                if (delta < 0) // if user enter a wrong input speed which is in minues number i.e, -10
                 {
-                    //Console.WriteLine("{0} has overheated!", PetName);
-                    CurrentSpeed = 0;
-                    carIsDead = true;
+                    throw new ArgumentOutOfRangeException("delta", "Speed must be greater than zero!");
+                }
+                else
+                {
+                   CurrentSpeed += delta;
+                   if (CurrentSpeed > MaxSpeed)
+                   {
+                        //Console.WriteLine("{0} has overheated!", PetName);
+                        CurrentSpeed = 0;
+                        carIsDead = true;
 
-                    #region Throwing excpetion by custom exception class
+                        #region Throwing excpetion by custom exception class
 
                     CarIsDeadException ex = new CarIsDeadException($"{CarName} is over heated");
                     ex.HelpLink = "www.apni-auqat-main-raho.com";
                     throw ex;
 
-                    #endregion
-                    
-                    #region throwing expcetion by using base exception class
+                        #endregion
+
+                        #region throwing expcetion by using base exception class
 
 
-                    //Exception ex = new Exception($"{CarName} has overheated!");
-                    //ex.HelpLink = "http://www.Apni-Auqat-Main-Raho.com";
-                    //ex.Data.Add("TimeStamp", $"The car exploded at {DateTime.Now}");
-                    //ex.Data.Add("Cause", "You have a Loud foot.");
+                        //Exception ex = new Exception($"{CarName} has overheated!");
+                        //ex.HelpLink = "http://www.Apni-Auqat-Main-Raho.com";
+                        //ex.Data.Add("TimeStamp", $"The car exploded at {DateTime.Now}");
+                        //ex.Data.Add("Cause", "You have a Loud foot.");
 
-                    //throw ex;
+                        //throw ex;
 
-                    #endregion
+                        #endregion
 
-                }
-                else
-                {
-                    Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
+                    }
+                    else
+                    {
+                        Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
+                    }
                 }
             }
         }
