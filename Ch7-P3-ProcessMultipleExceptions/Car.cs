@@ -1,10 +1,11 @@
-﻿using System;
+﻿//using Ch7_P2_CustomException;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch7_P2_CustomException
+namespace Ch7_P3_ProcessMultipleExceptions
 {
     class Car
     {
@@ -42,7 +43,7 @@ namespace Ch7_P2_CustomException
             {
                 if (delta < 0) // if user enter a wrong input speed which is in minues number i.e, -10
                 {
-                    throw new ArgumentOutOfRangeException("delta", "Speed must be greater than zero!");
+                    throw new ArgumentOutOfRangeException(" -ve Speed Error ", "===>  Speed must be greater than zero!");
                 }
                 else
                 {
