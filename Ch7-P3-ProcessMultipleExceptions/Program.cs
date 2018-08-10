@@ -77,26 +77,26 @@ namespace Ch7_P3_ProcessMultipleExceptions
 
             //Car myCar = new Car("Rusty", 90);
 
-            //try
-            //{
-            //    // Speed up car logic...
-            //    myCar.Accelerate(90);
-            //}
-            //catch (CarIsDeadException e)
-            //{
-            //    try
-            //    {
-            //        FileStream fs = File.Open(@"C:\carErrors.txt", FileMode.Open);
-            //        //...
-            //    }
-            //    catch (Exception e2)
-            //    {
-            //        // Throw an exception that records the new exception,
-            //        // as well as the message of the first exception.
-            //        throw new CarIsDeadException(e.Message, e2);
-            //        //throw new CarIsDeadException(e.Message, e2);
-            //    }
-            //}
+            try
+            {
+                // Speed up car logic...
+                myCar.Accelerate(90);
+            }
+            catch (CarIsDeadException e)
+            {
+                try
+                {
+                    FileStream fs = File.Open(@"C:\carErrors.txt", FileMode.Open);
+                    //...
+                }
+                catch (Exception e2)
+                {
+                    // Throw an exception that records the new exception,
+                    // as well as the message of the first exception.
+                    throw new CarIsDeadException(e.Message, e2);
+                    //throw new CarIsDeadException(e.Message, e2);
+                }
+            }
 
             #endregion
 
